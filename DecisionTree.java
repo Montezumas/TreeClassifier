@@ -280,11 +280,8 @@ public class DecisionTree {
 			}
 		}
 
-		if (prune == true) {
-			reduced = true;
-		}
-
 		if (prune) {
+			reduced = true;
 			node.value = first.value;
 			node.child.clear();
 		} else {
