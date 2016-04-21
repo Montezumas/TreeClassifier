@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+import DecisionTree.Node;
+
 /**
  * A train-able decision tree to be used for classification
  * 
@@ -31,7 +33,10 @@ public class DecisionTree {
 	 * @return the complete decision tree
 	 */
 	private Node constructTree(ArrayList<Data> examples, ArrayList<String> attributes, ArrayList<ArrayList<String>> values) {
-
+		if(examples.size() == 1) {
+			return new Node(null, examples.get(0).classification);
+		}
+		
 		for (int i = 1; i < examples.size(); i++) {
 			if (!examples.get(i).classification.equals(examples.get(i - 1).classification)) {
 				// there are more than one classifications in examples
